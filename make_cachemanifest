@@ -1,0 +1,28 @@
+#!/bin/bash 
+
+usage(){
+	echo 
+	echo "Usage: make_cachemanifest [-n <name>]"
+	echo
+	echo "Usage: make_cachemanifest ? (this help)"
+	echo
+	echo "Usage: make_cachemanifest update (.manifest in current directory)"
+	echo 
+}
+update(){
+	for i in *.manifest; do
+		echo " Atualizando: $i"
+		echo "CACHE MANIFEST" > $i;
+		echo "" >> $i;
+		echo "#Update at: $(date +"%Y/%m/%d-%Hh%M")">> $i;
+		echo "" >> $i;
+		find . -type f | grep -vi .git  | sed "s#^\./##" | grep -vi "ds_store"| grep -vi "manifest"| grep -vi "htaccess" >> $i
+	done
+}
+	
+if   [ "$1" = 'update' ]; then update;
+elif [ "$1" = '?'      ]; then usage;
+elif [ "$1" = '-n'     ]; then echo "CACHE MANIFEST" >  ./$2.manifest; update;
+elif [[ -f *.manifest ]]; then echo "CACHE MANIFEST" > cache.manifest; update; 
+else update;
+fi;
