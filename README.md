@@ -1,10 +1,12 @@
-make_cachemanifest
+MAKE_CACHEMANIFEST
 ==================
 
-Makes .manifest
-Setup:
-	to use on mac copy on /usr/local/bin
+MAC only
 
+Makes .manifest
+
+Setup:
+	to use on mac copy on /usr/local/bin/
 	them in terminal do sudo chmod 777 make_cachemanifest
 Usage
 	go to a directory, them use "make_cachemanifest".

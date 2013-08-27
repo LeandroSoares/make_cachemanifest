@@ -1,10 +1,11 @@
 #!/bin/bash 
+# ver. 1.0.0
 
 usage(){
-	echo 
+	echo Make cache manifest ver.:1.0.0
 	echo "Usage: make_cachemanifest [-n <name>]"
 	echo
-	echo "Usage: make_cachemanifest ? (this help)"
+	echo "Usage: make_cachemanifest -? (this help)"
 	echo
 	echo "Usage: make_cachemanifest update (.manifest in current directory)"
 	echo 
@@ -21,8 +22,9 @@ update(){
 }
 	
 if   [ "$1" = 'update' ]; then update;
-elif [ "$1" = '?'      ]; then usage;
-elif [ "$1" = '-n'     ]; then echo "CACHE MANIFEST" >  ./$2.manifest; update;
+elif [ "$1" = '-?'     ]; then usage;
+elif [ "$1" = '-v'     ]; then echo "1.0.0";
+elif [ "$1" = '-n'     ]; then echo "CACHE MANIFEST" > ./$2.manifest; update;
 elif [[ -f *.manifest ]]; then echo "CACHE MANIFEST" > cache.manifest; update; 
 else update;
 fi;
