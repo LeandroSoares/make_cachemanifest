@@ -1,11 +1,9 @@
 MAKE_CACHEMANIFEST
 ==================
 
-MAC only
+Make a apache.manifest easy.
 
-Makes .manifest
-
-Setup
+Setup on mac
 ---------
 First, clone a copy of the main make_cachemanifest git repo by running:
 
